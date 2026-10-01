@@ -8,6 +8,13 @@
 
 > 🎓 **Portfolio Project** — โปรเจกต์นี้จัดทำขึ้นเพื่อการศึกษาและใช้เป็นผลงานด้าน Web & App Development ของผู้พัฒนา
 
+## 🌐 Live Demo
+
+สามารถทดลองใช้งานระบบได้ผ่านเว็บไซต์ที่ Deploy บน Vercel:
+
+👉 **[View Live Website](https://phet-woodwork-factory.vercel.app/)**
+
+> โปรเจกต์นี้เป็นเวอร์ชันสำหรับสาธิตผลงานและใช้ประกอบ Portfolio
 ---
 
 ## 👩‍💻 About This Project

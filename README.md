@@ -363,33 +363,6 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 npm run dev
 ```
 
-> ⚠️ **Security:** ไม่ควร Commit ไฟล์ `.env.local` หรือ Secret Key ใด ๆ ขึ้น GitHub
-
----
-
-## 📸 Screenshots
-
-สามารถเพิ่มภาพตัวอย่างของระบบในส่วนนี้เพื่อให้ผู้ที่เข้ามาดู Repository เข้าใจโปรเจกต์ได้รวดเร็วยิ่งขึ้น
-
-ตัวอย่างภาพที่แนะนำให้ใส่:
-
-- Landing Page
-- Portfolio / Gallery
-- Price Estimator
-- Interactive Map
-- Thai Chatbot
-- Admin Dashboard
-- CRM Kanban
-- Inventory / Schedule Management
-
-ตัวอย่าง Markdown:
-
-```md
-![Landing Page](./public/images/screenshots/landing-page.png)
-```
-
----
-
 ## 💡 What I Learned
 
 จากการพัฒนาโปรเจกต์นี้ ได้ฝึกและประยุกต์ใช้ทักษะหลายด้าน เช่น

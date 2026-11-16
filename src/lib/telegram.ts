@@ -16,6 +16,17 @@ export const DEFAULT_TELEGRAM_SETTINGS: TelegramSettings = {
 export const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://phet-woodwork.vercel.app').replace(/\/$/, '');
 
 /**
+ * Sanitize strings for Telegram HTML parse_mode to prevent HTML entity injection / parser crash
+ */
+export function escapeHtml(text?: string | null): string {
+  if (!text) return '-';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+/**
  * Format message for a new customer lead or price estimator inquiry
  */
 export function formatLeadTelegramMessage(lead: Lead): string {
@@ -30,13 +41,13 @@ export function formatLeadTelegramMessage(lead: Lead): string {
 
   return `⭐ <b>มีลูกค้าสนใจสั่งทำผลงานใหม่ (New Quotation)!</b>
 ━━━━━━━━━━━━━━━━━━━━
-👤 <b>ชื่อลูกค้า:</b> ${lead.customer_name}
-📞 <b>เบอร์โทรติดต่อ:</b> <code>${lead.phone_number}</code>
-💬 <b>LINE ID:</b> ${lead.line_id || '-'}
-🪵 <b>ประเภทงาน:</b> <b>${lead.interest_type || 'งานไม้สักสั่งทำ'}</b>
-📐 <b>สเปก/ขนาด:</b> ${lead.dimensions || '-'}
-💰 <b>ช่วงราคาประเมิน:</b> <b>${lead.budget_range || '-'}</b>
-📝 <b>รายละเอียด:</b> <i>${lead.notes || '-'}</i>
+👤 <b>ชื่อลูกค้า:</b> ${escapeHtml(lead.customer_name)}
+📞 <b>เบอร์โทรติดต่อ:</b> <code>${escapeHtml(lead.phone_number)}</code>
+💬 <b>LINE ID:</b> ${escapeHtml(lead.line_id)}
+🪵 <b>ประเภทงาน:</b> <b>${escapeHtml(lead.interest_type || 'งานไม้สักสั่งทำ')}</b>
+📐 <b>สเปก/ขนาด:</b> ${escapeHtml(lead.dimensions)}
+💰 <b>ช่วงราคาประเมิน:</b> <b>${escapeHtml(lead.budget_range)}</b>
+📝 <b>รายละเอียด:</b> <i>${escapeHtml(lead.notes)}</i>
 ━━━━━━━━━━━━━━━━━━━━
 ⏰ <i>บันทึกเวลา: ${timeStr} น.</i>
 🔗 <b>ดูข้อมูลในระบบ:</b> <a href="${BASE_URL}/factory-gateway/leads">${BASE_URL}/factory-gateway/leads</a>`;
